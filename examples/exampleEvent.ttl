@@ -1,0 +1,8 @@
+prefix schema: <http://schema.org/>
+prefix dbr:    <http://dbpedia.org/resource/>
+prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
+prefix :       <http://example.org/>
+
+:myEvent a schema:Event ;
+  schema:location  dbr:Oviedo ;
+  schema:startDate "2014-05-23T20:00"^^xsd:dateTime .

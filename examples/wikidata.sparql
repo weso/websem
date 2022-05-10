@@ -1,0 +1,22 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+prefix : <http://example.org/>
+
+construct {
+  ?persona :nombre ?personaLabel ;
+    :fechaNacimiento ?fechaNacimiento ;
+    :lugarNacimiento ?lugarNacimiento 
+} 
+where {
+  ?persona rdfs:label ?personaLabel .
+  ?persona wdt:P19 wd:Q12233 .
+  ?persona wdt:P569 ?fechaNacimiento .
+ OPTIONAL { 
+  ?persona wdt:P570 ?fechaFallecimiento . 
+  ?persona wdt:P20 ?lugarFallecimiento .
+  ?lugarFallecimiento wdt:P625 ?coordenadasFallecimiento 
+ }
+} 
+order by ?fechaNacimiento
+limit 100
